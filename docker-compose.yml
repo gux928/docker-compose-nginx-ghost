@@ -1,0 +1,14 @@
+mynginx:
+  image: nginx
+  links:
+    - myghost
+  ports:
+    - "80:80"
+  volumes:
+    - ./Nginx/nginx.conf:/etc/nginx/nginx.conf
+myghost:
+  image: ghost
+  ports:
+    - "2368"
+  volumes:
+    - ./data/ghost:/var/lib/ghost
